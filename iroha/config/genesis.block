@@ -1,0 +1,73 @@
+{
+  "block_v1": {
+    "payload": {
+      "transactions": [
+        {
+          "payload": {
+            "reducedPayload": {
+              "commands": [
+                {
+                  "addPeer": {
+                    "address": "iroha:10001",
+                    "peerKey": "c4ef1479d5a573116aa7248c1dc7a623e245c14c18a9a086cee2660c0d69c6e8
+"
+                  }
+                },
+                {
+                  "createRole": {
+                    "roleName": "admin",
+                    "permissions": [
+                      "can_add_peer",
+                      "can_add_signatory",
+                      "can_create_account",
+                      "can_create_domain",
+                      "can_create_asset",
+                      "can_get_all_accounts",
+                      "can_get_all_assets",
+                      "can_get_all_txs",
+                      "can_receive",
+                      "can_transfer"
+                    ]
+                  }
+                },
+                {
+                  "createDomain": {
+                    "domainId": "test",
+                    "defaultRole": "admin"
+                  }
+                },
+                {
+                  "createAccount": {
+                    "accountName": "admin",
+                    "domainId": "test",
+                    "publicKey": "c4ef1479d5a573116aa7248c1dc7a623e245c14c18a9a086cee2660c0d69c6e8
+"
+                  }
+                },
+                {
+                  "createAccount": {
+                    "accountName": "lecturer",
+                    "domainId": "test",
+                    "publicKey": "c0cc2bc2f1de3f1319973df2295079f019d35f452f47023a3dc25ed11e3ce762"
+                  }
+                },
+                {
+                  "createAccount": {
+                    "accountName": "student",
+                    "domainId": "test",
+                    "publicKey": "919da2cdd81527004579a9b3a335c08df06a3523178fc8d7561541f1f33d3cd2"
+                  }
+                }
+              ],
+              "creatorAccountId": "admin@test",
+              "createdTime": 1524492796721,
+              "quorum": 1
+            }
+          }
+        }
+      ],
+      "height": "1",
+      "prevBlockHash": ""
+    }
+  }
+}

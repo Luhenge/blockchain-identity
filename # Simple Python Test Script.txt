@@ -1,0 +1,13 @@
+# Simple Python Test Script
+print("Hello! Welcome to Python in VS Code.")
+
+# Ask for user input
+name = input("What's your name? ")
+print(f"Nice to meet you, {name}!")
+
+# Perform a simple calculation
+num1 = int(input("Enter a number: "))
+num2 = int(input("Enter another number: "))
+sum_result = num1 + num2
+
+print(f"The sum of {num1} and {num2} is {sum_result}.")

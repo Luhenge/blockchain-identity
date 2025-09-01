@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: bi_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: bi_backend
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:mysecretpassword@postgres:5432/postgres
+
+volumes:
+  postgres_data:
+  iroha:
+    image: hyperledger/iroha:latest
+    container_name: iroha
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./iroha/config:/config
+      - ./iroha/config/ledger:/tmp/block_store
+    command: >
+      irohad --genesis_block /config/genesis.block
+             --config /config/config.docker
+             --keypair_name node0
